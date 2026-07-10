@@ -3,8 +3,6 @@ interface Props {
   companyName?: string;
   companySiteLink?: string;
   date?: string;
-  icp?: string;
-  icpLink?: string;
 }
 
 defineOptions({
@@ -12,27 +10,14 @@ defineOptions({
 });
 
 withDefaults(defineProps<Props>(), {
-  companyName: 'Vben Admin',
+  companyName: '',
   companySiteLink: '',
-  date: '2024',
-  icp: '',
-  icpLink: '',
+  date: '',
 });
 </script>
 
 <template>
   <div class="text-md flex-center">
-    <!-- ICP Link -->
-    <a
-      v-if="icp"
-      :href="icpLink || 'https://beian.miit.gov.cn/'"
-      class="mx-1 hover:text-primary-hover"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      {{ icp }}
-    </a>
-
     <!-- Copyright Text -->
     Copyright © {{ date }}
 

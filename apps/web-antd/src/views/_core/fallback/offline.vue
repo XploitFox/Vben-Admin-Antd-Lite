@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { Fallback } from '@vben/common-ui';
 
-defineOptions({ name: 'FallbackOfflineDemo' });
+defineOptions({ name: 'FallbackOffline' });
 </script>
 
 <template>

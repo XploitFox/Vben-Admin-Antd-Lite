@@ -126,7 +126,7 @@
     "title": "主题",
     "radius": "圆角",
     "fontSize": "字体大小",
-    "fontSizeTip": "调整全局字体大小，实时预览效果",
+    "fontSizeTip": "调整全局字体大小",
     "light": "浅色",
     "dark": "深色",
     "darkSidebar": "深色侧边栏",
@@ -177,9 +177,7 @@
     "enable": "启用版权",
     "companyName": "公司名",
     "companySiteLink": "公司主页",
-    "date": "日期",
-    "icp": "ICP 备案号",
-    "icpLink": "ICP 网站链接"
+    "date": "日期"
   },
   "shortcutKeys": {
     "title": "快捷键",
@@ -200,33 +198,5 @@
     "lockScreen": "启用锁屏",
     "refresh": "启用刷新",
     "timezone": "启用时区"
-  },
-  "antd": {
-    "tabLabel": "Antd 拓展",
-    "title": "业务偏好",
-    "fields": {
-      "enableFormFullscreen": {
-        "label": "启用表单全屏模式",
-        "tip": "子项目可在自己的业务场景中读取这个拓展配置。"
-      },
-      "tenantMode": {
-        "label": "租户模式",
-        "options": {
-          "single": {
-            "label": "单租户"
-          },
-          "multi": {
-            "label": "多租户"
-          }
-        }
-      },
-      "defaultTableSize": {
-        "label": "默认分页条数"
-      },
-      "reportTitle": {
-        "label": "报表默认标题",
-        "placeholder": "请输入报表默认标题"
-      }
-    }
   }
 }

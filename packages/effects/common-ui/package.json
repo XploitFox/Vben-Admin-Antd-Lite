@@ -40,9 +40,7 @@
     "@vben/locales": "workspace:*",
     "@vben/types": "workspace:*",
     "@vueuse/core": "catalog:",
-    "@vueuse/integrations": "catalog:",
     "json-bigint": "catalog:",
-    "qrcode": "catalog:",
     "tippy.js": "catalog:",
     "vue": "catalog:",
     "vue-json-pretty": "catalog:",
@@ -51,7 +49,6 @@
   },
   "devDependencies": {
     "@types/json-bigint": "catalog:",
-    "@types/qrcode": "catalog:",
     "@vue/test-utils": "catalog:"
   }
 }

@@ -126,7 +126,7 @@
     "title": "Theme",
     "radius": "Radius",
     "fontSize": "Font Size",
-    "fontSizeTip": "Adjust global font size with real-time preview",
+    "fontSizeTip": "Adjust global font size",
     "light": "Light",
     "dark": "Dark",
     "darkSidebar": "Semi Dark Sidebar",
@@ -177,9 +177,7 @@
     "enable": "Enable Copyright",
     "companyName": "Company Name",
     "companySiteLink": "Company Site Link",
-    "date": "Date",
-    "icp": "ICP License Number",
-    "icpLink": "ICP Site Link"
+    "date": "Date"
   },
   "shortcutKeys": {
     "title": "Shortcut Keys",
@@ -200,33 +198,5 @@
     "lockScreen": "Enable Lock Screen",
     "refresh": "Enable Refresh",
     "timezone": "Enable Timezone"
-  },
-  "antd": {
-    "tabLabel": "Antd Extension",
-    "title": "Business Preferences",
-    "fields": {
-      "enableFormFullscreen": {
-        "label": "Enable Form Fullscreen Mode",
-        "tip": "Subprojects can read this extension configuration in their own business scenarios."
-      },
-      "tenantMode": {
-        "label": "Tenant Mode",
-        "options": {
-          "single": {
-            "label": "Single Tenant"
-          },
-          "multi": {
-            "label": "Multi Tenant"
-          }
-        }
-      },
-      "defaultTableSize": {
-        "label": "Default Page Size"
-      },
-      "reportTitle": {
-        "label": "Default Report Title",
-        "placeholder": "Please enter the default report title"
-      }
-    }
   }
 }

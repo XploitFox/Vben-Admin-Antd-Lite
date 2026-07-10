@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import type { AuthenticationProps } from './types';
 
 import { computed, watch } from 'vue';
@@ -38,7 +38,7 @@ const getZIndex = computed(() => {
 });
 
 /**
- * 排除ant-message和loading:9999的z-index
+ * 鎺掗櫎ant-message鍜宭oading:9999鐨剒-index
  */
 const zIndexExcludeClass = ['ant-message', 'loading'];
 function isZIndexExcludeClass(element: Element) {
@@ -48,8 +48,7 @@ function isZIndexExcludeClass(element: Element) {
 }
 
 /**
- * 获取最大的zIndex值
- */
+ * 鑾峰彇鏈€澶х殑zIndex鍊? */
 function calcZIndex() {
   let maxZ = 0;
   const elements = document.querySelectorAll('*');
@@ -83,7 +82,6 @@ function calcZIndex() {
       <VbenAvatar :src="avatar" class="mx-auto mb-6 size-20" />
       <Slot
         :show-forget-password="false"
-        :show-register="false"
         :show-remember-me="false"
         :sub-title="$t('authentication.loginAgainSubTitle')"
         :title="$t('authentication.loginAgainTitle')"
@@ -93,3 +91,4 @@ function calcZIndex() {
     </Modal>
   </div>
 </template>
+

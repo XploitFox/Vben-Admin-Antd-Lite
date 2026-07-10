@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { SupportedLanguagesType } from '@vben/locales';
-import type { CustomPreferencesRecord } from '@vben/preferences';
 import type {
   BreadcrumbStyleType,
   BuiltinThemeType,
@@ -23,7 +22,6 @@ import {
   clearCache,
   preferences,
   resetPreferences,
-  updateCustomPreferences,
   usePreferences,
 } from '@vben/preferences';
 
@@ -45,7 +43,6 @@ import {
   ColorMode,
   Content,
   Copyright,
-  Custom,
   FontSize,
   Footer,
   General,
@@ -156,8 +153,6 @@ const copyrightCompanySiteLink = defineModel<string>(
   'copyrightCompanySiteLink',
 );
 const copyrightDate = defineModel<string>('copyrightDate');
-const copyrightIcp = defineModel<string>('copyrightIcp');
-const copyrightIcpLink = defineModel<string>('copyrightIcpLink');
 
 const shortcutKeysEnable = defineModel<boolean>('shortcutKeysEnable');
 const shortcutKeysGlobalSearch = defineModel<boolean>(
@@ -185,15 +180,12 @@ const widgetRefresh = defineModel<boolean>('widgetRefresh');
 const widgetTimezone = defineModel<boolean>('widgetTimezone');
 
 const {
-  customPreferences,
-  diffCustomPreference,
   diffPreference,
   isDark,
   isFullContent,
   isHeaderNav,
   isHeaderSidebarNav,
   isMixedNav,
-  preferencesExtension,
   isSideMixedNav,
   isSideMode,
   isSideNav,
@@ -204,22 +196,6 @@ const [Drawer] = useVbenDrawer();
 
 const activeTab = ref('appearance');
 
-const customPreferencesTab = computed(() => {
-  return preferencesExtension.value;
-});
-
-const customTabLabel = computed(() => {
-  return customPreferencesTab.value?.tabLabel
-    ? $t(customPreferencesTab.value.tabLabel)
-    : '';
-});
-
-const customTabTitle = computed(() => {
-  const title =
-    customPreferencesTab.value?.title || customPreferencesTab.value?.tabLabel;
-  return title ? $t(title) : '';
-});
-
 const mergedDiffPreference = computed(() => {
   const result: Record<string, unknown> = {};
 
@@ -227,15 +203,7 @@ const mergedDiffPreference = computed(() => {
     Object.assign(result, diffPreference.value);
   }
 
-  if (diffCustomPreference.value) {
-    result.custom = diffCustomPreference.value;
-  }
-
   return Object.keys(result).length > 0 ? result : undefined;
-});
-
-const showCustomTab = computed(() => {
-  return (customPreferencesTab.value?.fields.length ?? 0) > 0;
 });
 
 const tabs = computed((): SegmentedItem[] => {
@@ -257,13 +225,6 @@ const tabs = computed((): SegmentedItem[] => {
       value: 'general',
     },
   ];
-
-  if (showCustomTab.value) {
-    items.push({
-      label: customTabLabel.value,
-      value: 'custom',
-    });
-  }
 
   return items;
 });
@@ -298,10 +259,6 @@ async function handleReset() {
   }
   await resetPreferences();
   await loadLocaleMessages(preferences.app.locale);
-}
-
-function handleCustomPreferencesUpdate(updates: CustomPreferencesRecord) {
-  updateCustomPreferences(updates);
 }
 </script>
 
@@ -509,8 +466,6 @@ function handleCustomPreferencesUpdate(updates: CustomPreferencesRecord) {
                 v-model:copyright-company-site-link="copyrightCompanySiteLink"
                 v-model:copyright-date="copyrightDate"
                 v-model:copyright-enable="copyrightEnable"
-                v-model:copyright-icp="copyrightIcp"
-                v-model:copyright-icp-link="copyrightIcpLink"
                 :disabled="!footerEnable"
               />
             </Block>
@@ -524,15 +479,6 @@ function handleCustomPreferencesUpdate(updates: CustomPreferencesRecord) {
                 v-model:shortcut-keys-lock-screen="shortcutKeysGlobalLockScreen"
                 v-model:shortcut-keys-logout="shortcutKeysGlobalLogout"
                 v-model:shortcut-keys-escape="shortcutKeysGlobalEscape"
-              />
-            </Block>
-          </template>
-          <template #custom>
-            <Block :title="customTabTitle">
-              <Custom
-                :fields="customPreferencesTab?.fields || []"
-                :values="customPreferences"
-                @update="handleCustomPreferencesUpdate"
               />
             </Block>
           </template>

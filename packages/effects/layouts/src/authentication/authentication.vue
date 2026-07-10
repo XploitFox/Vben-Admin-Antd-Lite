@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import type { ToolbarType } from './types';
 
 import { computed } from 'vue';
@@ -32,7 +32,7 @@ const props = withDefaults(defineProps<Props>(), {
   pageTitle: '',
   sloganImage: '',
   toolbar: true,
-  toolbarList: () => ['color', 'language', 'layout', 'theme'],
+  toolbarList: () => ['color', 'language', 'theme'],
   clickLogo: () => {},
 });
 
@@ -40,14 +40,14 @@ const { authPanelCenter, authPanelLeft, authPanelRight, isDark } =
   usePreferences();
 
 /**
- * @zh_CN 根据主题选择合适的 logo 图标
+ * @zh_CN 鏍规嵁涓婚閫夋嫨鍚堥€傜殑 logo 鍥炬爣
  */
 const logoSrc = computed(() => {
-  // 如果是暗色主题且提供了 logoDark，则使用暗色主题的 logo
+  // 濡傛灉鏄殫鑹蹭富棰樹笖鎻愪緵浜?logoDark锛屽垯浣跨敤鏆楄壊涓婚鐨?logo
   if (isDark.value && props.logoDark) {
     return props.logoDark;
   }
-  // 否则使用默认的 logo
+  // 鍚﹀垯浣跨敤榛樿鐨?logo
   return props.logo;
 });
 </script>
@@ -62,7 +62,7 @@ const logoSrc = computed(() => {
         <Toolbar :toolbar-list="toolbarList" />
       </slot>
     </template>
-    <!-- 左侧认证面板 -->
+    <!-- 宸︿晶璁よ瘉闈㈡澘 -->
     <AuthenticationFormView
       v-if="authPanelLeft"
       class="min-h-full w-2/5 flex-1"
@@ -79,7 +79,7 @@ const logoSrc = computed(() => {
     </AuthenticationFormView>
 
     <slot name="logo">
-      <!-- 头部 Logo 和应用名称 -->
+      <!-- 澶撮儴 Logo 鍜屽簲鐢ㄥ悕绉?-->
       <div
         v-if="logoSrc || appName"
         class="absolute top-0 left-0 z-10 flex flex-1"
@@ -103,7 +103,7 @@ const logoSrc = computed(() => {
       </div>
     </slot>
 
-    <!-- 系统介绍 -->
+    <!-- 绯荤粺浠嬬粛 -->
     <div v-if="!authPanelCenter" class="relative hidden w-0 flex-1 lg:block">
       <div
         class="absolute inset-0 size-full bg-background-deep dark:bg-[#070709]"
@@ -135,7 +135,7 @@ const logoSrc = computed(() => {
       </div>
     </div>
 
-    <!-- 中心认证面板 -->
+    <!-- 涓績璁よ瘉闈㈡澘 -->
     <div v-if="authPanelCenter" class="relative flex-center w-full">
       <div class="login-background absolute top-0 left-0 size-full"></div>
       <AuthenticationFormView
@@ -153,7 +153,7 @@ const logoSrc = computed(() => {
       </AuthenticationFormView>
     </div>
 
-    <!-- 右侧认证面板 -->
+    <!-- 鍙充晶璁よ瘉闈㈡澘 -->
     <AuthenticationFormView
       v-if="authPanelRight"
       class="min-h-full w-2/5 flex-1"
@@ -194,3 +194,4 @@ const logoSrc = computed(() => {
   }
 }
 </style>
+

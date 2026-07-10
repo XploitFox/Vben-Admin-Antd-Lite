@@ -18,49 +18,7 @@ import { useAccessStore, useUserStore } from '@vben/stores';
 import { useAuthStore } from '#/store';
 import LoginForm from '#/views/_core/authentication/login.vue';
 
-const notifications = ref<NotificationItem[]>([
-  {
-    id: 1,
-    avatar: 'https://avatar.vercel.sh/vercel.svg?text=VB',
-    date: '3小时前',
-    isRead: true,
-    message: '描述信息描述信息描述信息',
-    title: '收到了 14 份新周报',
-  },
-  {
-    id: 2,
-    avatar: 'https://avatar.vercel.sh/1',
-    date: '刚刚',
-    isRead: false,
-    message: '描述信息描述信息描述信息',
-    title: '朱偏右 回复了你',
-  },
-  {
-    id: 3,
-    avatar: 'https://avatar.vercel.sh/1',
-    date: '2024-01-01',
-    isRead: false,
-    message: '描述信息描述信息描述信息',
-    title: '曲丽丽 评论了你',
-  },
-  {
-    id: 4,
-    avatar: 'https://avatar.vercel.sh/satori',
-    date: '1天前',
-    isRead: false,
-    message: '描述信息描述信息描述信息',
-    title: '代办提醒',
-  },
-  {
-    id: 5,
-    avatar: 'https://avatar.vercel.sh/satori',
-    date: '1天前',
-    isRead: false,
-    message: '描述信息描述信息描述信息',
-    title: '跳转分析页示例',
-    link: '/analytics',
-  },
-]);
+const notifications = ref<NotificationItem[]>([]);
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -172,8 +130,7 @@ watch(
       <UserDropdown
         :avatar
         :text="userStore.userInfo?.realName"
-        description="ann.vben@gmail.com"
-        tag-text="Pro"
+        :description="userStore.userInfo?.username"
         @logout="handleLogout"
         @clear-preferences-and-logout="handleLogout"
       />

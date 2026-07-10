@@ -7,22 +7,12 @@ import { isDarkTheme } from './update-css-variables';
 
 function usePreferences() {
   const preferences = preferencesManager.getPreferences();
-  const customPreferences = preferencesManager.getCustomPreferences();
   const initialPreferences = preferencesManager.getInitialPreferences();
-  const initialCustomPreferences =
-    preferencesManager.getInitialCustomPreferences();
-  const preferencesExtension = computed(() =>
-    preferencesManager.getPreferencesExtension(),
-  );
   /**
    * @zh_CN 计算偏好设置的变化
    */
   const diffPreference = computed(() => {
     return diff(initialPreferences, preferences);
-  });
-
-  const diffCustomPreference = computed(() => {
-    return diff(initialCustomPreferences, customPreferences);
   });
 
   const appPreferences = computed(() => preferences.app);
@@ -250,9 +240,7 @@ function usePreferences() {
     authPanelLeft,
     authPanelRight,
     contentIsMaximize,
-    customPreferences,
     diffPreference,
-    diffCustomPreference,
     globalLockScreenShortcutKey,
     globalLogoutShortcutKey,
     globalEscapeShortcutKey,
@@ -270,7 +258,6 @@ function usePreferences() {
     keepAlive,
     layout,
     locale,
-    preferencesExtension,
     preferencesButtonPosition,
     sidebarCollapsed,
     theme,

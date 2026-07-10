@@ -105,8 +105,5 @@ pnpm dev
 
 ```bash
 pnpm run dev:antd
-pnpm run dev:ele
-pnpm run dev:naive
 pnpm run dev:docs
-pnpm run dev:play
 ```

@@ -43,12 +43,10 @@ exports[`defaultPreferences immutability test > should not modify the config obj
     "styleType": "normal",
   },
   "copyright": {
-    "companyName": "Vben",
-    "companySiteLink": "https://www.vben.pro",
-    "date": "2024",
-    "enable": true,
-    "icp": "闽ICP备19024351号",
-    "icpLink": "https://beian.miit.gov.cn/",
+    "companyName": "",
+    "companySiteLink": "",
+    "date": "",
+    "enable": false,
     "settingShow": true,
   },
   "footer": {
