@@ -1,5 +1,7 @@
 ﻿# Vben Admin Antd Lite
 
+**English** | [中文](./README.zh-CN.md)
+
 Vben Admin Antd Lite is a lightweight admin frontend template based on [Vue Vben Admin](https://github.com/vbenjs/vue-vben-admin). The project keeps the Ant Design Vue application and the local mock backend, while removing the default multi-app setup, demo menus, demo pages, demo APIs, and unnecessary login methods. It is suitable as a clean starting point for real business systems.
 
 Because I tend to prefer a clean project baseline and often need to repeat the same simplification work for every new project, and because others may have the same need, this project turns that deep cleanup into a Lite version. It will continue to be updated according to real usage scenarios.

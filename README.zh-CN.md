@@ -1,5 +1,7 @@
 ﻿# Vben Admin Antd Lite
 
+[English](./README.md) | **中文**
+
 Vben Admin Antd Lite 是一个基于 [Vue Vben Admin](https://github.com/vbenjs/vue-vben-admin) 精简而来的中后台前端模板。项目保留 Ant Design Vue 版本应用和本地 mock 后端，移除默认多应用、演示菜单、演示页面、演示接口和多余登录方式，适合作为真实业务系统的干净起点。
 
 由于每次本人的完美主义与每次新项目都要重复精简操作与或许有人与我一样，该项目将深度清理沉淀为一个 Lite 版本 后续会继续按实际使用场景保持更新
