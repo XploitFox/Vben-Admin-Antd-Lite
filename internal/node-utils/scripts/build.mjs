@@ -1,9 +1,8 @@
 import { spawnSync } from 'node:child_process';
 
-const pnpmCommand =
-  process.env.npm_execpath && process.env.npm_execpath.endsWith('.cjs')
-    ? [process.execPath, process.env.npm_execpath]
-    : ['pnpm'];
+const pnpmCommand = process.env.npm_execpath
+  ? [process.execPath, process.env.npm_execpath]
+  : [process.platform === 'win32' ? 'pnpm.cmd' : 'pnpm'];
 
 const steps = [
   ['exec', 'tsdown', '--no-dts'],
@@ -21,12 +20,7 @@ const steps = [
 
 for (const args of steps) {
   const [command, ...commandArgs] = pnpmCommand;
-  let cmd = command;
-  if (cmd.includes(' ')) {
-    cmd = `"${command}"`;
-  }
-  const result = spawnSync(cmd, [...commandArgs, ...args], {
-    shell: true,
+  const result = spawnSync(command, [...commandArgs, ...args], {
     stdio: 'inherit',
   });
 
